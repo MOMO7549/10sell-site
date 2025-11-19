@@ -1,0 +1,615 @@
+---
+import MainLayout from '../layouts/main.astro';
+import CoinFlipSection from '../components/CoinFlipSection';
+import TokenSection from '../components/TokenSection';
+
+const pageClass = '10-sell-page';
+---
+
+<MainLayout pageClass={pageClass}>
+<!-- Top Navigation with Round Logo AND Hero Banner -->
+<nav class="top-nav">
+<div class="nav-content">
+<div class="round-logo-container has-image">
+  <img src="https://i.imgur.com/wizwzbW.png" alt="Logo" class="round-logo-image" style="display: block;" />
+</div>
+<div class="nav-hero-container has-image">
+  <img src="https://i.imgur.com/gfFI53u.png" alt="10 SELL Banner" class="nav-hero-image" style="display: block;" />
+</div>
+</div>
+</nav>
+
+<div class="container">
+<!-- Header with Google Colors -->
+<header class="header">
+<div class="title-container">
+  <h1 class="main-title" id="mainTitle">
+    <span class="google-letter-1">M</span><span class="google-letter-2">y</span> <span class="google-letter-3">1</span><span class="google-letter-4">0</span> <span class="google-letter-5">S</span><span class="google-letter-6">E</span><span class="google-letter-1">L</span><span class="google-letter-2">L</span> <span class="google-letter-3">A</span><span class="google-letter-4">d</span><span class="google-letter-5">v</span><span class="google-letter-6">e</span><span class="google-letter-1">n</span><span class="google-letter-2">t</span><span class="google-letter-3">u</span><span class="google-letter-4">r</span><span class="google-letter-5">e</span> <span class="rocket">🚀</span>
+  </h1>
+</div>
+<p id="subtitle" style="font-size: 24px; color: #5f6368; margin-top: 20px; font-weight: 400;">
+  The story of a crazy bet
+</p>
+</header>
+
+<!-- Interactive Coin Section -->
+<CoinFlipSection client:only="react" />
+
+<!-- How it all started Section -->
+<section class="doc-section">
+<div class="doc-toggle" id="docToggle">
+  <h3>💡 How it all started</h3>
+  <span class="doc-arrow" id="docArrow">▼</span>
+</div>
+<div class="documentation" id="documentation">
+  <p>At first, I was completely intrigued by memecoins. I thought to myself that I too wanted to launch my own token.<br />
+    I spent over a month asking myself this question: what token could I create that would be truly unique?</p>
+  <p>And then, since I'm passionate about casinos and love betting on things like blackjack or roulette, I thought: why not create something around the coin flip game?<br />
+    Something simple but completely crazy. That's how the idea of 10 SELL was born.</p>
+  <p>I wanted to make it unique, incredible, and above all transparent. So here's what I imagined...</p>
+</div>
+</section>
+
+<!-- How it really works Section -->
+<section class="info-section">
+<h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">🎲 How it really works?</h2>
+<p class="info-text">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use. That way, no one can tell me I cheated or that I control the result.</p>
+
+<!-- IMAGE 1 - Google's coin flip -->
+<div class="image-upload-container has-image">
+  <img src="https://i.imgur.com/VhDrVmd.png" alt="Google's coin flip" class="uploaded-image" style="display: block;" />
+</div>
+
+<p class="info-text" style="margin-top: 30px;">
+  The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails), 
+  <span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.
+</p>
+
+<p class="info-text">
+  I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1. 
+  And when we reach 10 of the same side, boom, it displays "SELL".
+</p>
+
+<!-- IMAGE 2 - My Google Sheets program -->
+<div class="image-upload-container has-image">
+  <img src="https://i.imgur.com/FTCg4ws.png" alt="My Google Sheets program" class="uploaded-image" style="display: block;" />
+</div>
+</section>
+
+<!-- The live counter Section -->
+<section class="info-section">
+<h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">⏱️ The live counter</h2>
+<p class="info-text">During the lives, I'll use a 1-hour counter. When the counter stops, the live is over and we continue next time. That way it's clear for everyone.</p>
+
+<!-- IMAGE 3 - The Google counter -->
+<div class="image-upload-container has-image">
+  <img src="https://i.imgur.com/BEI8LUO.png" alt="The Google counter" class="uploaded-image" style="display: block;" />
+</div>
+</section>
+
+<!-- What it will look like Section -->
+<section class="info-section">
+<h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">📱 What it will look like</h2>
+<p class="info-text">The lives will be done on X (Twitter) in mobile format because frankly, it's more pleasant to watch on phone.</p>
+
+<div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 25px 0;">
+  <p class="info-text" style="margin-bottom: 12px;"><strong>At the top of the screen:</strong> Google's coin flip that I'll launch</p>
+  <p class="info-text" style="margin-bottom: 12px;"><strong>In the center:</strong> the 1-hour counter that scrolls</p>
+  <p class="info-text"><strong>At the bottom:</strong> my Google Sheets program with buttons that go up and down to count</p>
+</div>
+
+<!-- VIDEO 4 - Preview of the mobile live format -->
+<div class="image-upload-container has-image video-container" style="max-width: 900px; background: transparent;">
+  <div id="videoWrapper" style="width: 100%; height: 100%; position: relative;">
+    <video 
+      id="mainVideo"
+      controls 
+      controlslist="nodownload nofullscreen noremoteplayback"
+      disablepictureinpicture
+      style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px;"
+      lang="en">
+      <source src="https://i.imgur.com/TOA0mm0.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <!-- Custom Fullscreen Button -->
+    <button 
+      id="customFullscreenBtn" 
+      title="Fullscreen"
+      style="position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.7); border: none; border-radius: 6px; padding: 10px; cursor: pointer; z-index: 10; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center;"
+      onmouseover="this.style.background='rgba(0, 0, 0, 0.9)'"
+      onmouseout="this.style.background='rgba(0, 0, 0, 0.7)'">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+</section>
+
+<!-- Why join now Section -->
+<section class="info-section">
+<h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">💎 Why join now?</h2>
+<p class="info-text">Honestly, I think this is a completely crazy concept. Nobody knows when the coin will land 10 times in a row on the same side.</p>
+<p class="info-text">It could be in 5 minutes or in 1 hour. <span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
+<p class="info-text">And above all, everything is transparent. I use tools that everyone knows: Google's coin flip, Google Sheets, a simple counter. <strong style="color: #ea4335;">Zero manipulation possible.</strong></p>
+<p class="info-text">And even if at the end of the hour I haven't reached 10, it's not over. On the contrary, it's an opportunity to buy even more as the token continues its progression.</p>
+<p class="info-text">The most thrilling moment? When I reach <strong style="color: #ea4335;">9 out of 10</strong>. If I break the streak, there will inevitably be people who panic and sell.</p>
+<p class="info-text">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
+<p class="info-text" style="font-size: 20px; font-weight: 600; text-align: center; margin: 30px 0;">
+  That's why it's important to watch my lives: <strong style="color: #4285f4;">you'll know exactly when to buy and when to sell.</strong>
+</p>
+
+<div style="background: white; border: 2px solid #34a853; border-radius: 12px; padding: 30px; margin: 35px auto; max-width: 800px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #34a853; text-align: center;">💎 No locked liquidity</h3>
+  <p style="font-size: 20px; line-height: 1.7; color: #3c4043; text-align: center;">
+    My concept requires it: if I land 10 times in a row, I must sell everything live during the stream. That's why I can't lock the liquidity. 
+    Instead: <strong style="color: #ea4335;">100% public wallet</strong> (check on DexScreener). Total transparency.
+  </p>
+</div>
+</section>
+
+<!-- When are the lives Section -->
+<section class="info-section">
+<h2 style="font-size: 36px; margin-bottom: 30px; font-weight: 500; color: #1a73e8;">⏰ When are the lives?</h2>
+
+<div style="background: white; border: 2px solid #4285f4; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #ea4335;">🔥 WHENEVER I FEEL LIKE IT</h3>
+  <p style="font-size: 20px; margin-bottom: 25px; line-height: 1.6; color: #3c4043;">I do the lives when I feel like it, without fixed schedule. It can be:</p>
+  <div style="display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+    <div style="font-size: 18px; font-weight: 600; color: #4285f4;">🌅 Morning</div>
+    <div style="font-size: 18px; font-weight: 600; color: #34a853;">☀️ Afternoon</div>
+    <div style="font-size: 18px; font-weight: 600; color: #fbbc05;">🌙 Evening</div>
+  </div>
+  <p style="font-size: 18px; color: #5f6368; font-style: italic;">This unpredictability is what makes it even crazier.</p>
+</div>
+
+<div style="background: white; border: 2px solid #fbbc05; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #ea4335;">⚡ ONLY 10-15 MINUTES WARNING</h3>
+  <p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
+    I only warn <strong>10-15 minutes before on X</strong>. If you miss the alert, you potentially miss <strong style="color: #ea4335;">THE historic moment</strong> when I'm going to sell everything.
+  </p>
+</div>
+
+<div style="background: white; border: 2px solid #34a853; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #34a853;">⏱️ 1 HOUR MAXIMUM</h3>
+  <p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
+    Each live lasts <strong>1 hour maximum</strong>. During this hour, we flip the coin, we count, and if we reach 10, 
+    <span style="color: #ea4335; font-weight: 700;">I sell live in front of everyone</span>.
+  </p>
+</div>
+
+<div style="margin-top: 40px; text-align: center;">
+  <a href="https://x.com/10Sell120969" target="_blank" rel="noopener noreferrer" class="google-button pulse-button" 
+     style="background: #4285f4; color: white; font-size: 22px; padding: 25px 60px; margin-top: 20px; border: none; box-shadow: 0 6px 20px rgba(66, 133, 244, 0.3); text-decoration: none; display: inline-block;">
+    🔔 ENABLE NOTIFICATIONS ON X
+  </a>
+  <p style="font-size: 18px; margin-top: 25px; color: #3c4043; font-weight: 600; background: #fce8e6; padding: 20px; border-radius: 8px; max-width: 700px; margin-left: auto; margin-right: auto; border: 1px solid #ea4335;">
+    ⚠️ Without notifications enabled, you WILL MISS the live.
+  </p>
+</div>
+</section>
+
+<!-- An Honest Project Section -->
+<section class="info-section">
+<h2 style="font-size: 36px; margin-bottom: 30px; font-weight: 500; color: #1a73e8; text-align: center;">⚖️ An Honest Project, A Clear Commitment</h2>
+
+<div style="background: white; border: 2px solid #fbbc05; border-radius: 12px; padding: 35px; margin: 35px auto; max-width: 900px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <p style="font-size: 22px; line-height: 1.7; color: #3c4043; text-align: center; margin-bottom: 15px;">
+    I won't lie to you: if after <strong style="color: #ea4335;">3 months</strong> the project doesn't take off<br />
+    (less than <strong style="color: #ea4335;">500 followers on X</strong>), I'll stop properly.
+  </p>
+  <p style="font-size: 20px; line-height: 1.7; color: #3c4043; text-align: center; margin-bottom: 25px; margin-top: 25px;">
+    If I have to stop, you'll be warned <strong style="color: #4285f4;">7 days before</strong>. Last live, we say goodbye with respect.
+  </p>
+  
+  <div style="background: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0;">
+    <p style="font-size: 20px; font-weight: 600; color: #ea4335; text-align: center; margin-bottom: 12px;">
+      No ghosting. No surprises.
+    </p>
+  </div>
+  
+  <p style="font-size: 22px; line-height: 1.7; color: #3c4043; text-align: center; margin-bottom: 20px;">
+    But if it works? We build something crazy together. <span style="font-size: 28px;">🚀</span>
+  </p>
+</div>
+</section>
+
+<!-- Coming Soon Section -->
+<section class="info-section" style="text-align: center;">
+<h2 style="font-size: 40px; margin-bottom: 25px; font-weight: 500; color: #1a73e8;">🚀 COMING SOON</h2>
+
+<div style="padding: 35px; max-width: 900px; margin: 35px auto;">
+  <p style="font-size: 22px; font-weight: 400; line-height: 1.7; margin-bottom: 25px; color: #202124;">
+    I always have ideas running through my head and I like to share them with you.<br />
+    The more the project grows, the more I'll be able to implement crazy stuff.
+  </p>
+  <p style="font-size: 16px; color: #5f6368; margin-top: 20px;">
+    Stay connected on X, I'm going to announce some stuff soon.
+  </p>
+</div>
+</section>
+
+<!-- Token Address Section -->
+<TokenSection client:only="react" />
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+<h3 style="font-size: 28px; color: #202124; margin-bottom: 30px; font-weight: 500;">🌐 Join us on X</h3>
+
+<div style="display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin-bottom: 35px;">
+<a href="https://x.com/10Sell120969" target="_blank" rel="noopener noreferrer" 
+   style="display: inline-flex; align-items: center; gap: 12px; padding: 15px 30px; background: #1a73e8; color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.2s ease; font-size: 18px;">
+  <svg style="width: 24px; height: 24px;" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+  Follow us on X
+</a>
+</div>
+
+<p style="color: #5f6368; font-size: 18px; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+💎 A transparent and completely crazy adventure, one flip at a time.
+</p>
+
+<p style="color: #dadce0; font-size: 16px; margin-top: 35px; padding-top: 25px; border-top: 1px solid #e8eaed;">
+© 2025 10 SELL Token • All rights reserved
+</p>
+</footer>
+</MainLayout>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Product+Sans:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+:global(.container) {
+max-width: 1600px;
+margin: 0 auto;
+padding: 0 60px;
+}
+
+/* Top Navigation Bar */
+:global(.top-nav) {
+position: sticky;
+top: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid #e8eaed;
+padding: 15px 0;
+z-index: 1000;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+:global(.nav-content) {
+max-width: 1600px;
+margin: 0 auto;
+padding: 0 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+}
+
+:global(.round-logo-container) {
+width: 60px;
+height: 60px;
+border-radius: 50%;
+border: 2px dashed #dadce0;
+background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+overflow: hidden;
+flex-shrink: 0;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+}
+
+:global(.round-logo-container:hover) {
+border-color: #4285f4;
+box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+transform: translateY(-2px);
+}
+
+:global(.round-logo-container.has-image) {
+border: none;
+}
+
+:global(.round-logo-image) {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: none;
+}
+
+:global(.nav-hero-container) {
+flex: 1;
+max-width: 1000px;
+height: 60px;
+border-radius: 8px;
+border: 2px dashed #dadce0;
+background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+overflow: hidden;
+position: relative;
+cursor: pointer;
+}
+
+:global(.nav-hero-container:hover) {
+border-color: #4285f4;
+box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+transform: translateY(-2px);
+}
+
+:global(.nav-hero-container.has-image) {
+background: transparent;
+border: none;
+}
+
+:global(.nav-hero-image) {
+width: 100%;
+height: 100%;
+object-fit: contain;
+display: none;
+}
+
+/* Header */
+:global(.header) {
+text-align: center;
+padding: 60px 0;
+position: relative;
+}
+
+:global(.title-container) {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+:global(.main-title) {
+font-size: 64px;
+font-weight: 400;
+font-family: 'Product Sans', 'Roboto', Arial, sans-serif;
+color: #202124;
+}
+
+:global(.google-letter-1) { color: #4285f4; }
+:global(.google-letter-2) { color: #ea4335; }
+:global(.google-letter-3) { color: #fbbc05; }
+:global(.google-letter-4) { color: #4285f4; }
+:global(.google-letter-5) { color: #34a853; }
+:global(.google-letter-6) { color: #ea4335; }
+
+:global(.rocket) {
+color: #4285f4;
+animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+40% { transform: translateY(-10px); }
+60% { transform: translateY(-5px); }
+}
+
+/* Documentation Section */
+:global(.doc-section) {
+margin: 40px 0;
+}
+
+:global(.doc-toggle) {
+background-color: #f8f9fa;
+border: 1px solid #e8eaed;
+border-radius: 8px;
+padding: 20px 25px;
+cursor: pointer;
+transition: all 0.2s ease;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+:global(.doc-toggle:hover) {
+background-color: #e8eaed;
+}
+
+:global(.doc-toggle h3) {
+color: #202124;
+font-size: 20px;
+font-weight: 500;
+}
+
+:global(.doc-arrow) {
+font-size: 24px;
+transition: transform 0.3s ease;
+}
+
+:global(.doc-arrow.open) {
+transform: rotate(180deg);
+}
+
+:global(.documentation) {
+background-color: #f8f9fa;
+border: 1px solid #e8eaed;
+border-top: none;
+border-radius: 0 0 8px 8px;
+padding: 25px;
+display: none;
+animation: slideDown 0.3s ease-out;
+}
+
+:global(.documentation.show) {
+display: block;
+}
+
+@keyframes slideDown {
+from {
+opacity: 0;
+transform: translateY(-10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+:global(.documentation h4) {
+color: #202124;
+margin-bottom: 15px;
+font-size: 18px;
+font-weight: 500;
+}
+
+:global(.documentation p) {
+color: #3c4043;
+margin-bottom: 15px;
+line-height: 1.6;
+font-size: 16px;
+}
+
+/* Info Sections */
+:global(.info-section) {
+background-color: #ffffff;
+border: 1px solid #dadce0;
+border-radius: 8px;
+padding: 30px;
+margin: 30px 0;
+box-shadow: 0 1px 6px rgba(32, 33, 36, 0.1);
+}
+
+:global(.info-text) {
+font-size: 18px;
+color: #3c4043;
+text-align: left;
+line-height: 1.8;
+}
+
+/* Image Upload Containers */
+:global(.image-upload-container) {
+width: 100%;
+max-width: 1300px;
+height: 500px;
+margin: 40px auto;
+border: 3px dashed #dadce0;
+border-radius: 12px;
+background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+overflow: hidden;
+position: relative;
+}
+
+:global(.image-upload-container:hover) {
+border-color: #4285f4;
+box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+transform: translateY(-2px);
+}
+
+:global(.image-upload-container.has-image) {
+background: transparent;
+border: none;
+}
+
+:global(.uploaded-image) {
+width: 100%;
+height: 100%;
+object-fit: contain;
+display: none;
+}
+
+/* Google Style Buttons */
+:global(.google-button) {
+background-color: #4285f4;
+color: white;
+border: none;
+border-radius: 6px;
+padding: 12px 24px;
+font-size: 14px;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+:global(.google-button:hover) {
+background-color: #3367d6;
+box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+transform: translateY(-1px);
+}
+
+:global(.pulse-button) {
+animation: pulse-button 2s infinite;
+}
+
+@keyframes pulse-button {
+0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(234, 67, 53, 0.4); }
+50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(234, 67, 53, 0.6); }
+}
+
+/* Footer */
+:global(.footer) {
+text-align: center;
+padding: 50px 0;
+border-top: 1px solid #e8eaed;
+margin-top: 50px;
+background-color: #f8f9fa;
+}
+
+/* Hide native video controls using CSS */
+video::-webkit-media-controls-fullscreen-button {
+display: none !important;
+}
+
+video::-webkit-media-controls-volume-slider {
+display: none !important;
+}
+
+video::-webkit-media-controls-mute-button {
+display: none !important;
+}
+</style>
+
+<script>
+// Toggle Documentation
+const docToggle = document.getElementById('docToggle');
+const documentation = document.getElementById('documentation');
+const docArrow = document.getElementById('docArrow');
+
+if (docToggle && documentation && docArrow) {
+docToggle.addEventListener('click', () => {
+if (documentation.classList.contains('show')) {
+  documentation.classList.remove('show');
+  docArrow.classList.remove('open');
+} else {
+  documentation.classList.add('show');
+  docArrow.classList.add('open');
+}
+});
+}
+
+// Custom Fullscreen Button
+const customFullscreenBtn = document.getElementById('customFullscreenBtn');
+const videoWrapper = document.getElementById('videoWrapper');
+const mainVideo = document.getElementById('mainVideo');
+
+if (customFullscreenBtn && videoWrapper && mainVideo) {
+customFullscreenBtn.addEventListener('click', () => {
+if (videoWrapper.requestFullscreen) {
+  videoWrapper.requestFullscreen();
+} else if (videoWrapper.webkitRequestFullscreen) {
+  videoWrapper.webkitRequestFullscreen();
+} else if (videoWrapper.msRequestFullscreen) {
+  videoWrapper.msRequestFullscreen();
+}
+});
+}
+</script>
