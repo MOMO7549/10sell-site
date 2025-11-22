@@ -55,20 +55,14 @@ why not create something around the coin flip game? Something simple but complet
 <!-- How it really works Section -->
 <section class="info-section">
 <h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">🎲 How it really works?</h2>
-<p class="info-text">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use. That way, no one can tell me I cheated or that I control the result.</p>
+<div id="howItWorksContent"></div>
 
 <!-- IMAGE 1 - Google's coin flip -->
 <div class="image-upload-container has-image">
 <img src="https://i.imgur.com/VhDrVmd.png" alt="Google's coin flip" class="uploaded-image" style="display: block;" />
 </div>
 
-<p class="info-text" style="margin-top: 30px;">
-The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails), <span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.
-</p>
-
-<p class="info-text">
-I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1. And when we reach 10 of the same side, boom, it displays "SELL".
-</p>
+<div id="principlContent"></div>
 
 <!-- IMAGE 2 - My Google Sheets program -->
 <div class="image-upload-container has-image">
@@ -79,7 +73,7 @@ I even created a program on Google Sheets to track all this. With each flip, it 
 <!-- The live counter Section -->
 <section class="info-section">
 <h2 style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500;">⏱️ The live counter</h2>
-<p class="info-text">During the lives, I'll use a 1-hour counter. When the counter stops, the live is over and we continue next time. That way it's clear for everyone.</p>
+<div id="liveCounterContent"></div>
 
 <!-- IMAGE 3 - The Google counter -->
 <div class="image-upload-container has-image">
@@ -162,16 +156,12 @@ Instead: <strong style="color: #ea4335;">100% public wallet</strong> (check on D
 
 <div style="background: white; border: 2px solid #fbbc05; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
 <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #ea4335;">⚡ ONLY 10-15 MINUTES WARNING</h3>
-<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
-I only warn <strong>10-15 minutes before on X</strong>. If you miss the alert, you potentially miss <strong style="color: #ea4335;">THE historic moment</strong> when I'm going to sell everything.
-</p>
+<div id="warningContent"></div>
 </div>
 
 <div style="background: white; border: 2px solid #34a853; border-radius: 12px; padding: 30px; margin-bottom: 35px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
 <h3 style="font-size: 28px; margin-bottom: 20px; font-weight: 700; color: #34a853;">⏱️ 1 HOUR MAXIMUM</h3>
-<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
-Each live lasts <strong>1 hour maximum</strong>. During this hour, we flip the coin, we count, and if we reach 10, <span style="color: #ea4335; font-weight: 700;">I sell live in front of everyone</span>.
-</p>
+<div id="hourMaxContent"></div>
 </div>
 
 <div style="margin-top: 40px; text-align: center;">
@@ -643,16 +633,99 @@ exitFullscreenIcon.style.display = 'none';
 });
 }
 
-// DYNAMIC CONTENT - Détection via User Agent (plus fiable avec viewport forcé)
-function updateWhyJoinContent() {
-const whyJoinContent = document.getElementById('whyJoinContent');
-if (!whyJoinContent) return;
-
-// Détection via User Agent pour détecter un vrai mobile
+// DYNAMIC CONTENT - Détection via User Agent
 const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+// 1. How it really works
+const howItWorksContent = document.getElementById('howItWorksContent');
+if (howItWorksContent) {
 if (isMobileDevice) {
-// Format MOBILE (9 lignes séparées avec 8px d'espacement)
+howItWorksContent.innerHTML = `
+<p class="info-text">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use.</p>
+<p class="info-text">That way, no one can tell me I cheated or that I control the result.</p>
+`;
+} else {
+howItWorksContent.innerHTML = `
+<p class="info-text">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use. That way, no one can tell me I cheated or that I control the result.</p>
+`;
+}
+}
+
+// 2. The principle
+const principlContent = document.getElementById('principlContent');
+if (principlContent) {
+if (isMobileDevice) {
+principlContent.innerHTML = `
+<p class="info-text" style="margin-top: 30px;">The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails),</p>
+<p class="info-text"><span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.</p>
+<p class="info-text">I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1.</p>
+<p class="info-text">And when we reach 10 of the same side, boom, it displays "SELL".</p>
+`;
+} else {
+principlContent.innerHTML = `
+<p class="info-text" style="margin-top: 30px;">
+The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails), <span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.
+</p>
+<p class="info-text">
+I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1. And when we reach 10 of the same side, boom, it displays "SELL".
+</p>
+`;
+}
+}
+
+// 3. The live counter
+const liveCounterContent = document.getElementById('liveCounterContent');
+if (liveCounterContent) {
+if (isMobileDevice) {
+liveCounterContent.innerHTML = `
+<p class="info-text">During the lives, I'll use a 1-hour counter.</p>
+<p class="info-text">When the counter stops, the live is over and we continue next time. That way it's clear for everyone.</p>
+`;
+} else {
+liveCounterContent.innerHTML = `
+<p class="info-text">During the lives, I'll use a 1-hour counter. When the counter stops, the live is over and we continue next time. That way it's clear for everyone.</p>
+`;
+}
+}
+
+// 4. Warning content
+const warningContent = document.getElementById('warningContent');
+if (warningContent) {
+if (isMobileDevice) {
+warningContent.innerHTML = `
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">I only warn <strong>10-15 minutes before on X</strong>.</p>
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">If you miss the alert, you potentially miss <strong style="color: #ea4335;">THE historic moment</strong> when I'm going to sell everything.</p>
+`;
+} else {
+warningContent.innerHTML = `
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
+I only warn <strong>10-15 minutes before on X</strong>. If you miss the alert, you potentially miss <strong style="color: #ea4335;">THE historic moment</strong> when I'm going to sell everything.
+</p>
+`;
+}
+}
+
+// 5. Hour max content
+const hourMaxContent = document.getElementById('hourMaxContent');
+if (hourMaxContent) {
+if (isMobileDevice) {
+hourMaxContent.innerHTML = `
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">Each live lasts <strong>1 hour maximum</strong>.</p>
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">During this hour, we flip the coin, we count, and if we reach 10, <span style="color: #ea4335; font-weight: 700;">I sell live in front of everyone</span>.</p>
+`;
+} else {
+hourMaxContent.innerHTML = `
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">
+Each live lasts <strong>1 hour maximum</strong>. During this hour, we flip the coin, we count, and if we reach 10, <span style="color: #ea4335; font-weight: 700;">I sell live in front of everyone</span>.
+</p>
+`;
+}
+}
+
+// 6. Why join now
+const whyJoinContent = document.getElementById('whyJoinContent');
+if (whyJoinContent) {
+if (isMobileDevice) {
 whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour.</p>
@@ -665,7 +738,6 @@ whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 20px;">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
 `;
 } else {
-// Format PC (6 paragraphes regroupés avec 8px d'espacement)
 whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour. <span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
@@ -676,7 +748,4 @@ whyJoinContent.innerHTML = `
 `;
 }
 }
-
-// Run on load
-updateWhyJoinContent();
 </script>
