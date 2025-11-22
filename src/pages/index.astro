@@ -641,7 +641,7 @@ const howItWorksContent = document.getElementById('howItWorksContent');
 if (howItWorksContent) {
 if (isMobileDevice) {
 howItWorksContent.innerHTML = `
-<p class="info-text">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use.</p>
+<p class="info-text" style="margin-bottom: 15px;">So it's quite simple. I'm going to use Google's coin flip, you know the one everyone can use.</p>
 <p class="info-text">That way, no one can tell me I cheated or that I control the result.</p>
 `;
 } else {
@@ -656,9 +656,9 @@ const principlContent = document.getElementById('principlContent');
 if (principlContent) {
 if (isMobileDevice) {
 principlContent.innerHTML = `
-<p class="info-text" style="margin-top: 30px;">The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails),</p>
-<p class="info-text"><span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.</p>
-<p class="info-text">I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1.</p>
+<p class="info-text" style="margin-top: 30px; margin-bottom: 15px;">The principle: I flip the coin live. If it lands <strong>10 times in a row on the same side</strong> (heads or tails),</p>
+<p class="info-text" style="margin-bottom: 15px;"><span class="highlight-sell" style="font-size: inherit;">I sell everything live in front of everyone</span>. There, it's as simple as that.</p>
+<p class="info-text" style="margin-bottom: 15px;">I even created a program on Google Sheets to track all this. With each flip, it counts: heads = 0, tails = 1.</p>
 <p class="info-text">And when we reach 10 of the same side, boom, it displays "SELL".</p>
 `;
 } else {
@@ -678,7 +678,7 @@ const liveCounterContent = document.getElementById('liveCounterContent');
 if (liveCounterContent) {
 if (isMobileDevice) {
 liveCounterContent.innerHTML = `
-<p class="info-text">During the lives, I'll use a 1-hour counter.</p>
+<p class="info-text" style="margin-bottom: 15px;">During the lives, I'll use a 1-hour counter.</p>
 <p class="info-text">When the counter stops, the live is over and we continue next time. That way it's clear for everyone.</p>
 `;
 } else {
@@ -693,7 +693,7 @@ const warningContent = document.getElementById('warningContent');
 if (warningContent) {
 if (isMobileDevice) {
 warningContent.innerHTML = `
-<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">I only warn <strong>10-15 minutes before on X</strong>.</p>
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043; margin-bottom: 15px;">I only warn <strong>10-15 minutes before on X</strong>.</p>
 <p style="font-size: 20px; line-height: 1.7; color: #3c4043;">If you miss the alert, you potentially miss <strong style="color: #ea4335;">THE historic moment</strong> when I'm going to sell everything.</p>
 `;
 } else {
@@ -710,7 +710,7 @@ const hourMaxContent = document.getElementById('hourMaxContent');
 if (hourMaxContent) {
 if (isMobileDevice) {
 hourMaxContent.innerHTML = `
-<p style="font-size: 20px; line-height: 1.7; color: #3c4043;">Each live lasts <strong>1 hour maximum</strong>.</p>
+<p style="font-size: 20px; line-height: 1.7; color: #3c4043; margin-bottom: 15px;">Each live lasts <strong>1 hour maximum</strong>.</p>
 <p style="font-size: 20px; line-height: 1.7; color: #3c4043;">During this hour, we flip the coin, we count, and if we reach 10, <span style="color: #ea4335; font-weight: 700;">I sell live in front of everyone</span>.</p>
 `;
 } else {
