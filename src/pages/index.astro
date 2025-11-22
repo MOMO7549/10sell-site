@@ -131,12 +131,7 @@ style="position: absolute; top: 15px; right: 15px; background: rgba(0, 0, 0, 0.7
 <!-- Why join now Section -->
 <section class="info-section why-join-section">
 <h2 class="why-join-title" style="font-size: 32px; color: #1a73e8; margin-bottom: 25px; font-weight: 500; text-align: center;">💎 Why join now?</h2>
-<p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
-<p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour. <span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
-<p class="info-text" style="text-align: center; margin-bottom: 8px;">And above all, everything is transparent. I use tools that everyone knows: Google's coin flip, Google Sheets, a simple counter. <strong style="color: #ea4335;">Zero manipulation possible.</strong></p>
-<p class="info-text" style="text-align: center; margin-bottom: 8px;">And even if at the end of the hour I haven't reached 10, it's not over. On the contrary, it's an opportunity to buy even more as the token continues its progression.</p>
-<p class="info-text" style="text-align: center; margin-bottom: 8px;">The most thrilling moment? When I reach <strong style="color: #ea4335;">9 out of 10</strong>. If I break the streak, there will inevitably be people who panic and sell.</p>
-<p class="info-text" style="text-align: center; margin-bottom: 20px;">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
+<div id="whyJoinContent"></div>
 <p class="info-text" style="font-size: 20px; font-weight: 600; text-align: center; margin: 30px 0;">
 That's why it's important to watch my lives: <strong style="color: #4285f4;">you'll know exactly when to buy and when to sell.</strong>
 </p>
@@ -617,7 +612,7 @@ docArrow.classList.add('open');
 });
 }
 
-// SIMPLIFIED FULLSCREEN BUTTON - NEW APPROACH
+// SIMPLIFIED FULLSCREEN BUTTON
 const customFullscreenBtn = document.getElementById('customFullscreenBtn');
 const videoWrapper = document.getElementById('videoWrapper');
 const fullscreenIcon = document.getElementById('fullscreenIcon');
@@ -627,13 +622,9 @@ if (customFullscreenBtn && videoWrapper) {
 customFullscreenBtn.addEventListener('click', async () => {
 try {
 if (!document.fullscreenElement) {
-// Enter fullscreen
 await videoWrapper.requestFullscreen();
-console.log('✅ Entered fullscreen');
 } else {
-// Exit fullscreen
 await document.exitFullscreen();
-console.log('✅ Exited fullscreen');
 }
 } catch (err) {
 console.error('❌ Fullscreen error:', err);
@@ -641,17 +632,51 @@ alert('Fullscreen not supported on this browser');
 }
 });
 
-// Update icon when fullscreen changes
 document.addEventListener('fullscreenchange', () => {
 if (document.fullscreenElement) {
 fullscreenIcon.style.display = 'none';
 exitFullscreenIcon.style.display = 'block';
-console.log('🔄 Icon: Exit fullscreen');
 } else {
 fullscreenIcon.style.display = 'block';
 exitFullscreenIcon.style.display = 'none';
-console.log('🔄 Icon: Enter fullscreen');
 }
 });
 }
+
+// DYNAMIC CONTENT BASED ON SCREEN SIZE
+function updateWhyJoinContent() {
+const whyJoinContent = document.getElementById('whyJoinContent');
+if (!whyJoinContent) return;
+
+const isMobile = window.innerWidth <= 768;
+
+if (isMobile) {
+// Format MOBILE (9 paragraphes séparés avec 8px d'espacement)
+whyJoinContent.innerHTML = `
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;"><span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">And above all, everything is transparent. I use tools that everyone knows: Google's coin flip, Google Sheets, a simple counter.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;"><strong style="color: #ea4335;">Zero manipulation possible.</strong></p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">And even if at the end of the hour I haven't reached 10, it's not over.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">On the contrary, it's an opportunity to buy even more as the token continues its progression.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">The most thrilling moment? When I reach <strong style="color: #ea4335;">9 out of 10</strong>. If I break the streak, there will inevitably be people who panic and sell.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 20px;">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
+`;
+} else {
+// Format PC (6 paragraphes regroupés avec 8px d'espacement)
+whyJoinContent.innerHTML = `
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour. <span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">And above all, everything is transparent. I use tools that everyone knows: Google's coin flip, Google Sheets, a simple counter. <strong style="color: #ea4335;">Zero manipulation possible.</strong></p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">And even if at the end of the hour I haven't reached 10, it's not over. On the contrary, it's an opportunity to buy even more as the token continues its progression.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 8px;">The most thrilling moment? When I reach <strong style="color: #ea4335;">9 out of 10</strong>. If I break the streak, there will inevitably be people who panic and sell.</p>
+<p class="info-text" style="text-align: center; margin-bottom: 20px;">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
+`;
+}
+}
+
+// Run on load and resize
+updateWhyJoinContent();
+window.addEventListener('resize', updateWhyJoinContent);
 </script>
