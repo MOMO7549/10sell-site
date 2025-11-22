@@ -643,14 +643,15 @@ exitFullscreenIcon.style.display = 'none';
 });
 }
 
-// DYNAMIC CONTENT BASED ON SCREEN SIZE
+// DYNAMIC CONTENT - Détection via User Agent (plus fiable avec viewport forcé)
 function updateWhyJoinContent() {
 const whyJoinContent = document.getElementById('whyJoinContent');
 if (!whyJoinContent) return;
 
-const isMobile = window.innerWidth <= 768;
+// Détection via User Agent pour détecter un vrai mobile
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-if (isMobile) {
+if (isMobileDevice) {
 // Format MOBILE (9 lignes séparées avec 8px d'espacement)
 whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
@@ -664,7 +665,7 @@ whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 20px;">And there, <strong style="color: #34a853;">boom, it's the perfect opportunity to buy at the lowest.</strong></p>
 `;
 } else {
-// Format PC (6 paragraphes regroupés avec 8px d'espacement) - INCHANGÉ
+// Format PC (6 paragraphes regroupés avec 8px d'espacement)
 whyJoinContent.innerHTML = `
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Honestly, I think this is a completely crazy concept.</p>
 <p class="info-text" style="text-align: center; margin-bottom: 8px;">Nobody knows when the coin will land 10 times in a row on the same side. It could be in 5 minutes or in 1 hour. <span style="color: #ea4335; font-weight: 600;">That's what makes it exciting.</span></p>
@@ -676,7 +677,6 @@ whyJoinContent.innerHTML = `
 }
 }
 
-// Run on load and resize
+// Run on load
 updateWhyJoinContent();
-window.addEventListener('resize', updateWhyJoinContent);
 </script>
